@@ -1,0 +1,132 @@
+:root {
+  --bg: #1e1e1e;
+  --panel: #2c2c2c;
+  --panel-elev: #3a3a3a;
+  --text: #f5f5f5;
+  --muted: #9aa0a6;
+  --primary: #0a84ff;
+  --primary-hover: #0060df;
+  --border: #3a3a3a;
+  --shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --radius-lg: 12px;
+  --radius-md: 8px;
+  --spacing-1: 8px;
+  --spacing-2: 12px;
+  --spacing-3: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  background-color: var(--bg);
+  color: var(--text);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0;
+  padding: var(--spacing-3);
+}
+
+.chat-container {
+  background-color: var(--panel);
+  width: 420px;
+  max-width: 100%;
+  height: min(75vh, 720px);
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.messages {
+  flex: 1;
+  padding: var(--spacing-3);
+  overflow-y: auto;
+  list-style: none;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2);
+  scroll-behavior: smooth;
+}
+
+.messages li {
+  align-self: flex-start;
+  max-width: 85%;
+  padding: 10px 14px;
+  background-color: var(--panel-elev);
+  border-radius: var(--radius-md);
+  word-wrap: break-word;
+  line-height: 1.35;
+}
+
+.messages li.me {
+  align-self: flex-end;
+  background: linear-gradient(180deg, #1f6feb 0%, #0a84ff 100%);
+  color: white;
+}
+
+.input-container {
+  display: flex;
+  gap: var(--spacing-2);
+  border-top: 1px solid var(--border);
+  padding: var(--spacing-2);
+  background-color: rgba(0,0,0,0.15);
+  backdrop-filter: blur(4px);
+}
+
+.input-container input {
+  flex: 1;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  outline: none;
+  font-size: 16px;
+  background-color: var(--panel);
+  color: var(--text);
+  border-radius: var(--radius-md);
+}
+
+.input-container input::placeholder {
+  color: var(--muted);
+}
+
+.input-container button {
+  padding: 12px 18px;
+  border: none;
+  background-color: var(--primary);
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: var(--radius-md);
+  transition: background-color 0.15s ease, transform 0.05s ease;
+}
+
+.input-container button:hover {
+  background-color: var(--primary-hover);
+}
+
+.input-container button:active {
+  transform: translateY(1px);
+}
+
+@media (max-width: 480px) {
+  .chat-container {
+    height: 80vh;
+    width: 100%;
+  }
+}
+
+.messages li.me {
+    align-self: flex-end;
+    background: #0a84ff; /* solid blue */
+    color: white;
+}
